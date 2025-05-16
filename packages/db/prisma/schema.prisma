@@ -24,10 +24,11 @@ model User {
 }
 
 model Room {
-  Id          String   @id @default(uuid())
-  name        String
-  runTime     Int      @default(0)
-  subscribers User[]
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  Id        String   @id @default(uuid())
+  name      String
+  runTime   Int      @default(0)
+  adminId   String
+  admin     User     @relation(fields: [adminId], references: [Id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

@@ -1,18 +1,19 @@
 {
-  "name": "types",
+  "name": "ws-server",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "dev" : "bun run index.ts"
+  },
   "devDependencies": {
     "@types/bun": "latest"
-  },
-  "exports" : {
-    "." : "./index.ts",
-    "./ws" : "./ws.ts"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "zod": "^3.24.4"
+    "ws": "^8.18.2",
+    "db" : "*",
+    "types" : "*"
   }
 }

@@ -5,3 +5,7 @@ export const signUpSchema = z.object({
     name: z.string().optional(),
     password: z.string().min(6, "Password should be greater than 6 character").optional()
 })
+
+export const createRoomSchema = z.object({
+    name : z.string(),
+})
