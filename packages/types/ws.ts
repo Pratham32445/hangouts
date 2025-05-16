@@ -21,5 +21,7 @@ export const Messages = {
     newUser : "new-user",
     initialQueue: "initial-queue",
     initialMessages : "initial-messages",
-    currentSeek : "current-seek"
+    currentSeek : "current-seek",
+    addSong : "add-song",
+    newChatMessage : "new-chat-message"
 }

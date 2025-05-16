@@ -30,7 +30,7 @@ export class Room {
             messages: this.messages
         }))
         user.ws.send(JSON.stringify({
-            type : Messages.currentSeek,
+            type: Messages.currentSeek,
         }))
         this.notifyAll({
             type: Messages.newUser,
@@ -48,6 +48,15 @@ export class Room {
     notifyAll(message: Message) {
         this.users.forEach((user) => {
             user.ws.send(JSON.stringify(message));
+        })
+    }
+    newMessage(message: ChatMessage) {
+        this.messages.push(message);
+        this.notifyAll({
+            type: Messages.newChatMessage,
+            payload: {
+                message
+            }
         })
     }
 }

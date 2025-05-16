@@ -20,3 +20,27 @@ export async function createRoom(req: Request, res: Response) {
         message: "Room Created"
     })
 }
+
+export async function getRoom(req: Request, res: Response) {
+    const roomId = req.params.id;
+    const room = await prismaClient.room.findFirst({
+        where: {
+            Id: roomId
+        }
+    })
+    res.status(201).json({
+        room
+    })
+}
+
+export async function deleteRoom(req: Request, res: Response) {
+    const roomId = req.params.id;
+    await prismaClient.room.delete({
+        where: {
+            Id: roomId
+        }
+    })
+    res.status(201).json({
+        message: "Room deleted"
+    })
+}

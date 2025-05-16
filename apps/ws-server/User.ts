@@ -9,7 +9,7 @@ export class User {
         this.Id = Id;
         this.ws = ws;
         this.init();
-    }
+    }   
     init() {
         this.ws.on("message", (event) => {
             const message: Message = JSON.parse(event.toString());
@@ -21,7 +21,12 @@ export class User {
                 case Messages.leaveRoom:
                     RoomManager.getInstance().getRoom(payload.roomId)?.leaveRoom(payload.roomId);
                     break;
-                case Messages.
+                case Messages.addSong:
+                    RoomManager.getInstance().getRoom(payload.roomId)?.addSong(message.payload.song);
+                    break;
+                case Messages.newChatMessage:
+                    RoomManager.getInstance().getRoom(payload.roomId)?.newMessage(payload.message);
+                    break;
             }
         })
     }
