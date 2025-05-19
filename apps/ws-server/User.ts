@@ -1,7 +1,6 @@
 import type { WebSocket } from "ws";
 import { Messages, type Message } from "types/ws"
 import { RoomManager } from "./Manager/RoomManager";
-
 export class User {
     Id: string;
     ws: WebSocket;
